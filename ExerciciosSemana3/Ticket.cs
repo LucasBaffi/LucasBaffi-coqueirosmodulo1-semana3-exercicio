@@ -7,8 +7,8 @@ namespace parking1
 {
 public class Ticket
 {
-    public DateTime Entrada { get; private set; }
-    public DateTime Saida { get; private set; }
+    public DateTime Entrada { get;  set; }
+    public DateTime Saida { get;  set; }
     public bool Ativo { get;  set; }
     
     public Ticket()
@@ -17,11 +17,11 @@ public class Ticket
         Ativo = true;
     }
 
-    public void MarcarSaida()
-    {
-        Saida = DateTime.Now;
-        Ativo = false;
-    }
+    // public void MarcarSaida()
+    // {
+    //     Saida = DateTime.Now;
+    //     Ativo = false;
+    // }
 
     public double CalcularTempo()
     {
@@ -29,11 +29,9 @@ public class Ticket
         return tempo.TotalMinutes;
     }
 
-    public double CalcularValor()
-    {
-        var tempo = CalcularTempo();
-        var valor = tempo * 0.09;
-        return valor;
+    public double CalcularValor() {     
+     
+        return CalcularTempo() * 0.09;
     }
     
 

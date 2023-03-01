@@ -1,11 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using parking;
+﻿using parking;
 using parking1;
-// Criando um novo ticket
-Ticket ticket = new Ticket();
 
-// Fazendo a saída do veículo e calculando o valor
-ticket.SaidaVeiculo();
-double valor = ticket.CalcularValor();
-Console.WriteLine($"Valor a ser cobrado: R$ {valor:f2}");
+List<Car> cars = new list<Car>();
+
+string opcao;
+do
+{
+    Console.WriteLine("/n/nOlá bem vindo ao estacionamento Pare aqui , selecione a opcao desejada");
+    Console.WriteLine("1 - Cadastrar carro ");
+    Console.WriteLine("2 - MArcar Entrada ");
+    Console.WriteLine("3 - Marcar Saida ");
+    Console.WriteLine("4 - Consultar Historico ");
+    Console.WriteLine("5 - Sair ");
+    opcao = Console.Read();
+
+} while (opcao != "5");
+
+void CadastrarCarro()
+{
+    //instanciar a classe carro
+    Car car = new Car();
+    Console.WriteLine("Digite a placa do carro");
+    car.Placa = Console.ReadLine();
+    Console.WriteLine("Digite a placa do modelo");
+    car.Modelo = Console.ReadLine();
+
+    Console.WriteLine("Digite a placa do cor");
+    car.Cor = Console.ReadLine();
+
+    Console.WriteLine("Digite a placa do marca");
+    car.Marca = Console.ReadLine();
+
+    cars.Add(car);
+
+
+
+
+}
