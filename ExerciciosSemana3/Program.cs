@@ -1,13 +1,15 @@
 ﻿using parking;
 using parking1;
 
+
+//lista estatica car
 List<Car> cars = new List<Car>();
 
 
 string opcao;
 do
 {
-    Console.WriteLine("/n/Olá bem vindo ao estacionamento Pare aqui , selecione a opcao desejada");
+    Console.WriteLine("olá bem vindo ao estacionamento Pare aqui , selecione a opcao desejada");
     Console.WriteLine("1 - Cadastrar carro ");
     Console.WriteLine("2 - Marcar Entrada ");
     Console.WriteLine("3 - Marcar Saida ");
@@ -86,6 +88,7 @@ void GerarTicket()
 
 
     Ticket NewTicket = new Ticket();
+    NewTicket.Ativo = true;
     car.Tickets.Add(NewTicket);
     Console.WriteLine("Ticket gerado");
 }
@@ -104,7 +107,7 @@ void FecharTicket()
     Ticket ticketAberto = null;
     foreach (var ticket in car.Tickets)
     {
-        if (ticket.Ativo == true)
+        if (ticket != null || ticket.Ativo == true)
         {
             ticketAberto = ticket;
         }
@@ -114,6 +117,8 @@ void FecharTicket()
              Console.WriteLine("nao ha tickets aberto para o veiculo");
         return;
         }
+         ticketAberto.MarcarSaida(); 
+    
 
 }
 
@@ -128,7 +133,7 @@ void Historico(){
         return;
     }
 
-Console.WriteLine("Entrada               |Saida           |Ativo           |Valor ");
+Console.WriteLine("Entrada               |Saida              |Ativo             |Valor ");
 
 //percorrer os tickets
 foreach(var ticket in car.Tickets){

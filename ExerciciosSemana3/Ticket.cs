@@ -12,7 +12,7 @@ namespace parking1
         public DateTime Saida { get; set; }
         public bool Ativo { get; set; }
 
-        public Ticket()
+        public void ticket()
         {
             Entrada = DateTime.Now;
             Ativo = true;
@@ -23,7 +23,8 @@ namespace parking1
             Saida = DateTime.Now;
             Ativo = false;
 
-            Console.WriteLine($"O veiculo ficou{CalcularTempo()} minutos e o valor cobrado sera de {CalcularValor()}");
+            var tempo = CalcularTempo(); // calcula o tempo em minutos
+            Console.WriteLine($"O veiculo ficou{tempo - 1} minutos e o valor cobrado sera de {CalcularValor()}");
         }
 
         public double CalcularTempo()
@@ -35,7 +36,8 @@ namespace parking1
         public double CalcularValor()
         {
 
-            return CalcularTempo() * 0.09;
+            double valor = CalcularTempo() * 0.09;
+            return Math.Round(valor, 2);
         }
 
 
